@@ -37,6 +37,7 @@ public class GetCoords : MonoBehaviour
     }
     void UpdateObjectName()
     {
-        transform.parent.name = coords.ToString();
+        string newName = coords.x.ToString() + "," + coords.y.ToString();
+        transform.parent.name = newName;
     }
 }
