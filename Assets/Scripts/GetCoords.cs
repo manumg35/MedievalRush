@@ -1,19 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
-using System;
+using UnityEngine;
 
 [ExecuteAlways]
 public class GetCoords : MonoBehaviour
 {
+    [SerializeField] Color defaultColor = Color.white;
+    [SerializeField] Color blockedColor = Color.grey;
+
     [SerializeField] Transform cube;
     TextMeshPro textMP;
     private Vector2 coords;
+    Waypoint waypoint;
+
 
     private void Awake()
     {
         textMP = GetComponent<TextMeshPro>();
+        textMP.enabled = false;
+        waypoint = GetComponentInParent<Waypoint>();
         DisplayCoordinates();
     }
 
@@ -24,6 +28,29 @@ public class GetCoords : MonoBehaviour
         {
             DisplayCoordinates();
             UpdateObjectName();
+        }
+        ToggleLabels();
+        ColorCoordinates();
+            
+    }
+
+    private void ColorCoordinates()
+    {
+        if (!waypoint.IsPlaceable)
+        {
+            textMP.color = blockedColor;
+        }
+        else
+        {
+            textMP.color = defaultColor;
+        }
+    }
+    void ToggleLabels()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            textMP.enabled = !textMP.IsActive() ;
+            
         }
     }
 
