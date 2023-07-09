@@ -212,3 +212,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16052d542711b5748b0f3ef5c4517e0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapon: {fileID: 4877960312416019709}
+  target: {fileID: 0}
