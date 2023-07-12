@@ -6,7 +6,7 @@ public class Waypoint : MonoBehaviour
 {
 
     [SerializeField] bool isPlaceable;
-    [SerializeField] GameObject towerPB;
+    [SerializeField] Tower towerPB;
     //Property to return the boolean
     public bool IsPlaceable{get{return isPlaceable;}}
 
@@ -15,8 +15,8 @@ public class Waypoint : MonoBehaviour
     {
         if (isPlaceable)
         {
-            Instantiate(towerPB, transform.position, Quaternion.identity);
-            isPlaceable = false;
+            bool isPlaced = towerPB.CreateTower(towerPB, transform.position);
+            isPlaceable = !isPlaced;
         }
     }
 }

@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlaceable: 1
-  towerPB: {fileID: 8885511082143526716, guid: 2542d2687ac880f4bad2cdce10a1d56b, type: 3}
+  towerPB: {fileID: 5023003470579173810, guid: 2542d2687ac880f4bad2cdce10a1d56b, type: 3}
 --- !u!65 &8607924720908286126
 BoxCollider:
   m_ObjectHideFlags: 0
