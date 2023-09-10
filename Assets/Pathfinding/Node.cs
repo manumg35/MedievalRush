@@ -11,13 +11,11 @@ public class Node
     public bool isPath;
     public Node conectedTo;
 
-    public Node(Vector2Int coords, bool isWalkable, bool isExplored, bool isPath, Node conectedTo)
+    public Node(Vector2Int coords, bool isWalkable)
     {
         this.coordinates = coords;
         this.isWalkable = isWalkable;
-        this.isExplored = isExplored;
-        this.isPath = isPath;
-        this.conectedTo = conectedTo;
+        
     }
 
 }
