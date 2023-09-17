@@ -7,6 +7,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2615132568930781982, guid: 88b60a66d92e20249944561c08eae4d9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2615132568930781982, guid: 88b60a66d92e20249944561c08eae4d9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2615132568930781982, guid: 88b60a66d92e20249944561c08eae4d9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2615132568930781982, guid: 88b60a66d92e20249944561c08eae4d9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2615132568930781982, guid: 88b60a66d92e20249944561c08eae4d9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 7197182995523411516, guid: 88b60a66d92e20249944561c08eae4d9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -53,7 +73,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9132648037343689562, guid: 88b60a66d92e20249944561c08eae4d9, type: 3}
       propertyPath: m_Name
-      value: TileWaterLineVertical
+      value: TileWaterLineVerticalWaterLeft
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88b60a66d92e20249944561c08eae4d9, type: 3}

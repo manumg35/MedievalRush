@@ -7,19 +7,22 @@ public class GetCoords : MonoBehaviour
 {
     [SerializeField] Color defaultColor = Color.white;
     [SerializeField] Color blockedColor = Color.grey;
+    [SerializeField] Color exploredColor = Color.yellow;
+    [SerializeField] Color pathColor= new Color(1f,0.5f,0f);
 
     [SerializeField] Transform cube;
     TextMeshPro textMP;
-    private Vector2 coords;
-    Waypoint waypoint;
+    private Vector2Int coords = new Vector2Int();
+    GridManager gridManager;
 
 
     private void Awake()
     {
+        gridManager = FindObjectOfType<GridManager>();
         textMP = GetComponent<TextMeshPro>();
-        textMP.enabled = false;
-
-        waypoint = GetComponentInParent<Waypoint>();
+        textMP.enabled = true;
+        
+        
         DisplayCoordinates();
     }
 
@@ -38,12 +41,25 @@ public class GetCoords : MonoBehaviour
 
     private void SetLabelColor()
     {
-        if (!waypoint.IsPlaceable)
+        if(gridManager==null){return;}
+
+        Node node = gridManager.GetNode(coords);
+
+        if(node==null){return;}
+
+        if (!node.isWalkable)
         {
             textMP.color = blockedColor;
         }
-        else
+        else if(node.isPath)
         {
+            textMP.color = pathColor;
+            
+        }
+        else if(node.isExplored){
+            textMP.color = exploredColor;
+        }
+        else{
             textMP.color = defaultColor;
         }
     }
@@ -51,6 +67,7 @@ public class GetCoords : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
+            Debug.Log("TOGGLE LABLE");
             textMP.enabled = !textMP.IsActive() ;
             
         }

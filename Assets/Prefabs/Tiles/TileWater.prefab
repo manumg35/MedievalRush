@@ -11,6 +11,30 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: -2432090755550338912, guid: a847eae99d42cdf49b01d8ca9f52e595, type: 3}
+    - target: {fileID: 4995098681820567082, guid: 4c4082600b8247e45abd56e28f444896, type: 3}
+      propertyPath: m_text
+      value: 0,0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995098681820567082, guid: 4c4082600b8247e45abd56e28f444896, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995098681820567082, guid: 4c4082600b8247e45abd56e28f444896, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995098681820567082, guid: 4c4082600b8247e45abd56e28f444896, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995098681820567082, guid: 4c4082600b8247e45abd56e28f444896, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995098681820567082, guid: 4c4082600b8247e45abd56e28f444896, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4286611584
+      objectReference: {fileID: 0}
     - target: {fileID: 5503666572995329881, guid: 4c4082600b8247e45abd56e28f444896, type: 3}
       propertyPath: m_RootOrder
       value: 0
