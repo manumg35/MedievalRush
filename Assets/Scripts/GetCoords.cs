@@ -67,9 +67,7 @@ public class GetCoords : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            Debug.Log("TOGGLE LABLE");
             textMP.enabled = !textMP.IsActive() ;
-            
         }
     }
 

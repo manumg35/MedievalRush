@@ -5,7 +5,9 @@ using UnityEngine;
 public class Pathfinder : MonoBehaviour
 {
     [SerializeField] Vector2Int startCoords;
+    public Vector2Int StartCoords{get{return startCoords;}}
     [SerializeField] Vector2Int destinationCoords;
+    public Vector2Int DestinationCoords{get {return destinationCoords;}}
 
     Node startNode;
     Node destinationNode;
@@ -20,17 +22,27 @@ public class Pathfinder : MonoBehaviour
         gridManager=FindObjectOfType<GridManager>();
         if(gridManager!=null){
             grid = gridManager.Grid;
+            startNode= grid[startCoords];
+            destinationNode= grid[destinationCoords];
+            
         }
-
         
-
+        
     }
     void Start()
     {
-        startNode= gridManager.Grid[startCoords];
-        destinationNode= gridManager.Grid[destinationCoords];
-        BreadthFrirstSearch();
-        BuildPath();
+        GetNewPath();
+    }
+
+    public List<Node> GetNewPath()
+    {
+        return GetNewPath(startCoords);
+    }
+    public List<Node> GetNewPath(Vector2Int coordinates)
+    {
+        gridManager.ResetNodes();
+        BreadthFrirstSearch(coordinates);
+        return BuildPath();
     }
     void ExploreNeightbors(){
 
@@ -53,11 +65,18 @@ public class Pathfinder : MonoBehaviour
         
     }
 
-    void BreadthFrirstSearch(){
+    void BreadthFrirstSearch(Vector2Int coordinates){
+        startNode.isWalkable=true;
+        destinationNode.isWalkable=true;
+
+        frontier.Clear();
+        reached.Clear();
+
         bool isRunning=true;
 
-        frontier.Enqueue(startNode);
-        reached.Add(startCoords, startNode);
+        frontier.Enqueue(grid[coordinates]);
+        reached.Add(coordinates, grid[coordinates]);
+
         while(frontier.Count>0 && isRunning){
 
             currentSearchNode=frontier.Dequeue();
@@ -88,6 +107,31 @@ public class Pathfinder : MonoBehaviour
         path.Reverse();
 
         return path;
+    }
+
+    public bool WillBlockPath(Vector2Int coordinates)
+    {
+        if(grid.ContainsKey(coordinates))
+        {
+            bool previusState = grid[coordinates].isWalkable;
+
+            grid[coordinates].isWalkable=false;
+            List<Node> newPath = GetNewPath();
+            grid[coordinates].isWalkable=previusState;
+
+            if(newPath.Count<=1)
+            {
+                GetNewPath();
+                return true;
+            }
+            
+        }
+
+        return false;
+    }
+
+    public void NotifyReceivers(){
+        BroadcastMessage("RecalculatePath", false, SendMessageOptions.DontRequireReceiver);
     }
 
 }
