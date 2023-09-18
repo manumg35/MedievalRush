@@ -75,8 +75,9 @@ public class GetCoords : MonoBehaviour
 
     private void DisplayCoordinates()
     {
-        coords.x =Mathf.RoundToInt(cube.position.x / 10);
-        coords.y = Mathf.RoundToInt(cube.position.z / 10);
+        if(gridManager==null){return;}
+        coords.x =Mathf.RoundToInt(cube.position.x / gridManager.UnityGridSize);
+        coords.y = Mathf.RoundToInt(cube.position.z / gridManager.UnityGridSize);
 
 
         textMP.text = coords.x.ToString() + "," + coords.y.ToString();
